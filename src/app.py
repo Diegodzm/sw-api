@@ -90,14 +90,14 @@ def postFavpeople(people_id):
 
 @app.route('/favorite/people/<int:people_id>', methods=['DELETE'])
 def delFavpeople(people_id):
-    person = Favorites.filter_by(person_id=people_id).first
+    person = Favorites.filter_by(person_id=people_id).first()
     db.session.delete(person)
     db.session.commit()
     return jsonify({"msg": "personaje eliminado correctamente"}), 200
     
 @app.route('/favorite/planet/<int:planet_id>', methods=['DELETE'])
-def delFavpeople(planet_id):
-    planet = Favorites.filter_by(planet_id=planet_id).first
+def delFavplanet(planet_id):
+    planet = Favorites.filter_by(planet_id=planet_id).first()
     db.session.delete(planet)
     db.session.commit()
     return jsonify({"msg": "planeta eliminado correctamente"}), 200
